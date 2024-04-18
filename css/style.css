@@ -1,0 +1,44 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
+@font-face {
+  font-family: titleFont;
+  src: url(fonts/Bright_Melody_Personal_Use_Only.ttf);
+}
+*,
+::before,
+::after {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #0a192f;
+  color: #ffffff;
+  font-family: "Raleway", sans-serif;
+  font-weight: 400;
+}
+
+.general {
+  max-width: 1680px;
+  margin: 0 auto;
+}
+
+h1, h2, h3 {
+  font-family: titleFont;
+  font-size: 2em;
+}
+
+ul {
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+}
+
+a {
+  color: #ffffff;
+  text-decoration: none;
+}/*# sourceMappingURL=style.css.map */
