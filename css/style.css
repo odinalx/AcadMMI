@@ -1,0 +1,417 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
+footer #bottom-footer, .color-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+footer #bottom-footer #socials-medias, footer #bottom-footer nav ul, footer #top-footer #agency-informations, #testimonial-section .testimonial-card-container, #team .team-card-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+div.title-left-container {
+  display: flex;
+  flex-direction: column;
+  margin-left: 8%;
+}
+
+footer #top-footer, #testimonial-section .testimonial-card-container .testimonial-card, #team .team-card-container .team-card .card-hover .team-header, #team .team-card-container .team-card .card-hover, .color-container .color-details, div.title-centered-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+@font-face {
+  font-family: titleFont;
+  src: url("../fonts/Bright_Melody_Personal_Use_Only.ttf");
+}
+*,
+::before,
+::after {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #002455;
+  color: #ffffff;
+  font-family: "Raleway", sans-serif;
+  font-weight: 400;
+}
+
+.general {
+  max-width: 1680px;
+  margin: 0 auto;
+  padding: 3rem 0px;
+}
+
+h1, h2, h3 {
+  font-family: titleFont;
+  font-size: 2.5em;
+  font-weight: 100;
+}
+
+p {
+  font-size: 20px;
+}
+
+ul {
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+}
+
+a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+div.title-centered-container {
+  padding: 3rem 0px;
+  gap: 20px;
+  font-size: 1.5em;
+}
+div.title-centered-container img.small-stars {
+  width: 30px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  margin: 0px 10px;
+}
+div.title-centered-container span.centered-underline {
+  display: block;
+  width: 250px;
+  border: 1px solid #ffffff;
+}
+
+div.title-left-container {
+  padding: 3rem 0px;
+  gap: 10px;
+}
+div.title-left-container span.left-underline {
+  display: block;
+  width: 150px;
+  border: 1px solid #ffffff;
+}
+
+.color-container {
+  margin-top: 50px;
+}
+.color-container .color-details {
+  gap: 40px;
+}
+.color-container .color-details span {
+  font-size: 2em;
+  font-weight: 700;
+}
+
+#values .identity-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+#values .identity-container:not(:last-child){
+  margin: 4.5em 0px;  
+}
+#values .div1 {
+  grid-area: 1/1/3/3;
+}
+#values .div2 {
+  grid-area: 3/3/5/5;
+}
+#values .div3 {
+  grid-area: 5/1/7/3;
+}
+#values .values-container {
+  padding: 3rem 3rem;
+  width: 50%;
+  border-radius: 55px;
+  background: linear-gradient(140deg, rgb(14, 178, 186) 0%, rgb(205, 215, 37) 100%);
+}
+.values-header span {
+  height: 120px;
+  font-size: 5.5em;
+  
+}
+.values-header h3 {
+  font-size: 4em;
+  text-transform: uppercase;
+  font-family: "Raleway", sans-serif;
+  font-weight: 700;
+}
+.values-header{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2em;
+}
+#values .values-container p {
+  color: #002455;
+}
+#values .values-container:nth-child(even) {
+  float: right;
+}
+
+#team .team-card-container {
+  gap: 50px;
+  flex-wrap: wrap;
+}
+#team .team-card-container .team-card {
+  width: 30%;
+  position: relative;
+  transition: all 0.2s ease-in-out;
+}
+#team .team-card-container .team-card img {
+  width: 100% !important;
+  height: 100%;
+}
+#team .team-card-container .team-card .card-hover {
+  position: absolute;
+  visibility: hidden;
+  top: 0;
+  left: 0;
+  height: 100%;
+  padding: 2em;
+  background-color: rgba(0, 0, 0, 0.65);
+  transition: all 0.2s ease-in-out;
+  gap: 20px;
+}
+#team .team-card-container .team-card .card-hover .team-header {
+  gap: 10px;
+}
+#team .team-card-container .team-card .card-hover .team-header span:first-child {
+  font-family: titlefont;
+  font-weight: 100;
+  font-size: 2em;
+  text-align: center;
+}
+#team .team-card-container .team-card .card-hover .team-header span.centered-underline {
+  display: block;
+  width: 100px;
+  border: 1px solid #ffffff;
+}
+#team .team-card-container .team-card .card-hover p.name {
+  font-family: titleFont;
+  font-weight: 100;
+  font-size: 1.8em;
+}
+#team .team-card-container .team-card .card-hover p.description {
+  text-align: center;
+}
+#team .team-card-container .team-card:hover .card-hover {
+  visibility: visible;
+}
+
+#testimonial-section .testimonial-card-container {
+  gap: 50px;
+  flex-wrap: wrap;
+}
+#testimonial-section .testimonial-card-container .testimonial-card {
+  width: 30%;
+  position: relative;
+  transition: all 0.2s ease-in-out;
+  height: 300px;
+  padding: 2em;
+  background: linear-gradient(140deg, rgb(14, 178, 186) 0%, rgb(205, 215, 37) 100%);
+  gap: 20px;
+  border: solid 1px #002455;
+  border-radius: 18px ;
+}
+#testimonial-section .testimonial-card-container .testimonial-card .testimonial-name {
+  font-family: titleFont;
+  font-size: 2em;
+  font-weight: 100;
+  text-transform: uppercase;
+}
+#testimonial-section .testimonial-card-container .testimonial-card p {
+  color: #002455;
+}
+
+footer {
+  background-image: url(../medias/motif.png);
+  max-width: 100% !important;
+}
+footer #top-footer {
+  margin-bottom: 50px;
+}
+footer #top-footer img {
+  width: 30%;
+}
+footer #top-footer #agency-informations {
+  gap: 100px;
+}
+footer #top-footer #agency-informations a {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  font-size: 1.5em;
+}
+footer #bottom-footer {
+  padding: 1em 2em;
+  width: 70%;
+  margin: 0 auto;
+  border-top: 1px solid #ffffff;
+  font-size: 20px;
+}
+footer #bottom-footer nav ul {
+  gap: 25px;
+}
+footer #bottom-footer #socials-medias {
+  gap: 30px;
+  font-size: 30px;
+}/*# sourceMappingURL=style.css.map */
+
+/*Menu Burger*/
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #fff;
+}
+.burger a {
+  display: flex;
+
+  padding: 10px;
+  color: #fff;
+  text-decoration: none;
+  margin: 5px 0;
+}
+
+.burger {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  right: -100%; 
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow-y: auto; 
+  transition: right 0.3s ease; 
+  background-color: rgba(8, 0, 85, 0.89);
+  z-index: 999;
+}
+
+
+.burgerbtn {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 40px;
+  height: 35px;
+  position: fixed; 
+  right: 40px; 
+  top: 40px; 
+  z-index: 1000;
+}
+
+.burgerbtn span {
+  display: block;
+  height: 3px; 
+  width: 100%;
+  background-color: #fff;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.burger.active + .burgerbtn span:nth-child(1) {
+  transform: translateY(12px) rotate(-45deg);
+}
+
+.burger.active + .burgerbtn span:nth-child(2) {
+  opacity: 0;
+  transform: translateX(20px)
+}
+
+.burger.active + .burgerbtn span:nth-child(3) {
+  transform: translateY(-12px) rotate(45deg);
+}
+
+
+.burger.active {
+  right : 0;
+}
+
+.no-scroll {
+  overflow: hidden;
+}
+
+.burger a{
+  font-size: 3.5em;
+  font-family: titleFont;
+  src: url("../fonts/Bright_Melody_Personal_Use_Only.ttf");
+}.burger a:hover{
+color: #D9ED52;
+}
+
+#hero{
+  padding: 7em 0 9em 10%;
+}
+
+#Accroche{
+  display: flex;
+  flex-direction: column;
+  font-family: "Raleway", sans-serif;
+  font-size: 5em;
+  text-transform: uppercase;
+  font-weight: 800;
+  margin-bottom: 4%;
+}
+
+.buzzword {
+  color: #D9ED52;
+}
+#hero p{
+  width: 45%;
+  font-size: 2em;
+  font-weight: 600;
+}
+
+.underline{
+  display: block;
+  width: 200px;
+  border: 1px solid;
+  color: #D9ED52;
+}
+
+.logo{
+  width: 32%;
+  padding-left: 7%;
+  padding-top: 1%;
+}
+
+.list-projects{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.projects{
+  width: 55%;
+  text-align: center;
+  background: linear-gradient(140deg, rgb(14, 178, 186) 0%, rgb(205, 215, 37) 100%);
+  padding: 5% 15%;
+  border: #002455 solid 1px;
+  border-radius: 18px;
+  text-transform: uppercase;
+  font-family: "Raleway", sans-serif;
+  font-size: 2em;
+  font-weight: 700;
+}
+.projects:not(:last-child){
+  margin-bottom: 1.5em;
+}
+.projects:hover{
+  background: linear-gradient(140deg, rgb(205, 215, 37) 0%, rgb(14, 178, 186) 100%);
+  color: #002455;
+}

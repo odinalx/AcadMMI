@@ -1,0 +1,318 @@
+<!--
+  ~ COPYRIGHT (c) 2017 Speedernet <contact@speedernet.fr>
+  ~ ALL RIGHTS RESERVED
+  ~ This file index.html is part of SpeedernetSphere project
+  ~ SpeedernetSphere can not be copied and/or distributed without the express permission of Speedernet
+  -->
+
+<!DOCTYPE html>
+
+<html lang="en" prefix="og: https://ogp.me/ns#">
+
+<head>
+    <title>ACAD_Agence_Comete</title>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="./static/css/viewer.css">
+    <!-- keep for now : need deep tests on dynamic manifest -->
+    <link rel="manifest" id="manifest-json" href="./static/assets/manifest.json">
+
+    <link rel="apple-touch-icon" sizes="192x192" href="./static/assets/icons/icon-192x192.png">
+
+    <meta name="theme-color" content="#212121" />
+
+    <!-- TODO add title and description -->
+    <!-- perfect size should be a pano for og:image at 1200 x 600 -->
+    <meta content="website" property=”og:type”>
+    <meta content="ACAD_Agence_Comete" property="og:title">
+    <!--<meta content="Immersive experience by Speedernet Sphere" property="og:description">-->
+    <meta content="./data/pano_pwa.jpg" property="og:image">
+    <meta content="1024" property="og:image:width">
+    <meta content="512" property="og:image:height">
+    <meta content="image/jpeg" property="og:image:type">
+    <meta content="360 panorama" property="og:image:alt">
+
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="SpeedernetSphereViewer">
+    <meta name="msapplication-TileImage" content="./static/assets/icons/icon-144x144.png">
+    <meta name="msapplication-TileColor" content="#000000">
+
+    <link rel="icon" type="image/png" href="./static/assets/SPHERE-favicon.png">
+
+    <script type="text/javascript" src="./static/js/libs/omnitone.js"></script>
+    <script type="text/javascript" src="./static/js/libs/hls.js"></script>
+    <script type="text/javascript" src="./static/js/libs/pako_inflate.js"></script>
+    <script type="text/javascript" src="./static/js/libs/tween.umd.js"></script>
+    <script src="./static/js/libs/basis/basis_transcoder.js"></script>
+</head>
+
+<body>
+
+    <div id="launchscreen">
+
+        <div id="cylinder" class="blurred_start">
+            <div class="ring ring-0">
+                <div class="poly"></div>
+                <div class="poly"></div>
+                <div class="poly"></div>
+                <div class="poly"></div>
+                <div class="poly"></div>
+                <div class="poly"></div>
+                <div class="poly"></div>
+                <div class="poly"></div>
+                <div class="poly"></div>
+                <div class="poly"></div>
+                <div class="poly"></div>
+                <div class="poly"></div>
+                <div class="poly"></div>
+                <div class="poly"></div>
+                <div class="poly"></div>
+                <div class="poly"></div>
+            </div>
+        </div>
+
+        <div class="main-overlay"></div>
+
+        <div id="titlecontainer" class="titlecontent">
+            <div id="title_text"></div>
+        </div>
+
+        <div id="https_warning">
+            <img src="./static/assets/help/warning.png" id="https_warning_btn" class="pointer">
+            <div id="warning-text">
+                <p id="https_warning_text_fr">
+                    La page n'est pas en HTTPS. Pour des raisons de sécurité, certaines fonctionnalités ont été bloquées
+                    par le navigateur. L'accéléromètre, ainsi que la VR, seront indisponibles. Contactez votre
+                    administrateur pour régler le problème.
+                <p id="https_warning_extra_fr">Il est normal d'être en HTTP lorsque vous utilisez le lien de
+                    prévisualisation mobile.</p>
+                </p>
+                <p id="https_warning_text_en">
+                    The page isn't using HTTPS. For security reasons, the web browser has blocked access to some
+                    features, such as the accelerometer, and VR. Please reach out to your system admin.
+                <p id="https_warning_extra_en">Using HTTP is normal in mobile preview mode.</p>
+                </p>
+            </div>
+        </div>
+
+        <div id="logocontent">
+            <a id="rightlogourl"><img id="rightlogo" /></a>
+            <a id="leftlogourl"><img id="leftlogo" /></a>
+        </div>
+
+        <div id="launchcommand">
+            <div class="divlaunchimg" id="divwebvrimg">
+                <img src="./static/assets/viewer/quest-in.png" id="webvrimg">
+                <span id="webvrText"></span>
+            </div>
+            <div class="divlaunchimg" id="divarimg">
+                <img src="./static/assets/viewer/ar-in.png" id="arimg">
+                <span id="arText"></span>
+            </div>
+            <div class="divlaunchimg" id="divscreensimg">
+                <img src="./static/assets/viewer/screens-in.png" id="screensimg">
+                <span id="screenText"></span>
+            </div>
+        </div>
+
+        <div id="alertwebgl">Your browser does not use WebGL technology. <br />Please check if an update is available.
+            <br /><br />Votre navigateur ne profite pas de la technologie WebGL.<br />Veuillez vérifier si une mise à
+            jour est disponible.
+            <br /><br /><a href="http://caniuse.com/#feat=webgl">Is WebGL compatible with my browser?</a>
+        </div>
+
+        <div id="help">
+            <div class="activeslideshow" id="activeslideshow">
+                <img src="./static/assets/help/info.png" id="showhelp" alt="">
+            </div>
+
+            <div class="slideshow" id="slideshow">
+                <div class="slideshowcontentbackground" id="slideshowcontentbackground"></div>
+                <img src="./static/assets/viewer/close.png" id="closehelp" alt="">
+                <div class="slideshowcontent">
+                    <div class="slide fadeout">
+                        <img src="./static/assets/help/desktop_navigation-en.png" id="helpcardboard" alt="">
+                    </div>
+                    <div class="slide fadeout">
+                        <img src="./static/assets/help/touchscreen-navigation-en.png" id="helpwebvr" alt="">
+                    </div>
+                    <div class="slide fadeout">
+                        <img src="./static/assets/help/vrheadset-navigation-en.png" id="helpmobile" alt="">
+                    </div>
+                    <div class="slide fadeout">
+                        <img src="./static/assets/help/cardboard-navigation-en.png" id="helpdesktop" alt="">
+                    </div>
+
+                    <a class="prev" onclick="main.nextSlide(-1)">&#10094;</a>
+                    <a class="next" onclick="main.nextSlide(1)">&#10095;</a>
+
+                    <div class="dotcontainer">
+                        <span class="dot" onclick="main.currentSlide(1)"></span>
+                        <span class="dot" onclick="main.currentSlide(2)"></span>
+                        <span class="dot" onclick="main.currentSlide(3)"></span>
+                        <span class="dot" onclick="main.currentSlide(4)"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div id="audios"></div>
+    <div id="videos"></div>
+    <video autoplay id="livestream" hidden="true"></video>
+    <div id="compass" class="compass">
+        <img src="./static/assets/viewer/compass.png" id="compassimg">
+    </div>
+
+    <div id="fullscreen" class="fullscreen">
+        <img src="./static/assets/viewer/fullscreen.png" id="fullscreenimg">
+    </div>
+
+    <div id="load_explain">
+        <span id="load_label"></span>
+        <span id="load_progress">0</span><span id="load_separator"> /&nbsp;</span><span id="load_total">0</span>
+    </div>
+
+    <div id="close">
+        <img src="./static/assets/viewer/close.png" id="closeimg">
+    </div>
+
+    <div id="synch">
+        <div id="pwa-div">
+            <div id="btn-install-pwa-container">
+                <div id="btn-install-pwa"></div>
+                <div id="btn-install-pwa-text" class="unselectable"></div>
+            </div>
+        </div>
+        <div id="preload-div">
+            <div id="btn-preload-container">
+                <div id="btn-preload"></div>
+                <div id="btn-preload-progress"></div>
+                <div id="btn-preload-text" class="unselectable"></div>
+            </div>
+        </div>
+        <div id="synch-info-div">
+            <div id="synch-info-text" class="unselectable"></div>
+        </div>
+    </div>
+
+    <canvas id="glcanvas"></canvas>
+    <canvas id="videocanvas"></canvas>
+
+    <button id="openMenuButton" style="display: none" class="position-absolute hide-interface">
+        <img id="openMenuButtonImage" src="./static/assets/menu/icon_menu_rest.png" alt="">
+    </button>
+    <button id="openUsersPanelButton" style="display: none" class="position-absolute hide-interface">
+        <img id="openUsersPanelImage" src="./static/assets/menu/icon_users_panel.png" alt="">
+    </button>
+    <div id="audioControls" style="display: none" class="hide-interface">
+        <div id="microControl" class="audioControl">
+            <div id="microControlButton" class="audioControlButton" title="Couper le micro">
+                <img id="microControlImg" class="micIcon microOn" src="./static/assets/menu/icon_voiceOn.png"
+                alt="Couper/rétablir le micro">
+                <span id="microPulse" class="pulse noAnimation"></span>
+            </div>
+        </div>
+        <div id="soundControl" class="audioControl">
+            <button id="soundControlButton" class="audioControlButton" title="Couper le son">
+                <img class="soundIcon soundOn" src="./static/assets/menu/icon_soundOn.png"
+                    alt="Couper/rétablir le son">
+            </button>
+        </div>
+    </div>
+    <div id="usersListContainer" class="hide-interface">
+        <div class="usersListTitle">
+            <img src="./static/assets/menu/icon_user.png" alt="">
+            <h5>Utilisateurs connectés <span id="usersCount"></span></h5>
+        </div>
+        <button id="closeUsersPanelButton" class="closeButton">
+            <img class="closeButtonImage icon" src="./static/assets/chat/icon_close.png" alt="Close">
+        </button>
+        <div id="usersList"></div>
+    </div>
+    <div id="reportPopupContainer" class="position-absolute menuPopin" tabindex="-1">
+        <div id="usersPopup" class="menuContainer">
+            <button id="closeReportButton" class="closeButton">
+                <img class="closeButtonImage icon" src="./static/assets/chat/icon_close.png" alt="Close">
+            </button>
+            <h1 class='textTitle red menuTitle'>Signalement</h1>
+            <div class="reportContent">
+                <p>Vous souhaitez signaler <span id="userName"></span></p>
+                <p>
+                    <label>Sélectionner un motif : </label>
+                    <select id="reportReason">
+                        <option name="InappropriateMessage" value="0">Message(s) inapproprié(s)</option>
+                        <option name="OffensiveLanguage" value="1">Langage offensant</option>
+                        <option name="AnormalBehaviour" value="2">Comportement anormal</option>
+                        <option name="Other" value="3">Autre</option>
+                    </select>
+                </p>
+                <textarea  id="reportDetails" type="text" placeholder="Pouvez-vous nous fournir quelques détails ?" maxlength="300"></textarea>
+            </div>
+            <button id="sendReport" class="button secondaryButton">Signaler l'utilisateur</button>
+
+        </div>
+    </div>
+    <div id="menuPopin" class="position-absolute menuPopin" tabindex="-1">
+        <div class="menuContainer">
+            <button id="closeButton" class="closeButton">
+                <img class="closeButtonImage icon" src="./static/assets/chat/icon_close.png" alt="Close">
+            </button>
+            <h1 class='textTitle red menuTitle'>Menu</h1>
+            <button id="profileButton" class="button primaryButton">Mon profil</button>
+            <button id="accountButton" class="button primaryButton">Mon compte</button>
+            <button id="forumButton" class="button primaryButton">Forum</button>
+            <button id="leaveButton" class="button secondaryButton">Quitter le MOOC</button>
+        </div>
+    </div>
+
+    <div id="alertPopup" hidden class="position-absolute">
+        <div style="background-color:white; padding: 15px; border-radius: 12px; text-align: left;">
+            <span style="display: flex; flex-direction: row; justify-content: flex-start;">
+                <img id="alertIconPositive" class="alertIcon" src="./static/assets/alert/picto_event.png">
+                <img id="alertIconNegative" class="alertIcon" src="./static/assets/alert/picto_alerte.png">
+                <h5 id="alertTitle" class="textTitle"></h5>
+            </span>
+            <p id="alertText" class="textBody" style="color: black;"></p>
+        </div>
+    </div>
+    <div class="position-absolute chatContainer">
+        <div id="chat" class="chat hide-interface">
+            <button id="closeChat" class="closeChatButton">
+                <h5 class="textTitle" style="margin: 0;">Chat</h5>
+                <div id="closeChat">
+                    <img class="chatCloseIcon" alt="">
+                </div>
+            </button>
+            <div id="chatMessages" class="chatMessages">
+            </div>
+            <div style="display: flex; flex-wrap: nowrap; justify-content: flex-end;">
+                <input id="chatInput" class="chatInput" placeholder="Envoyer un message..." type="text" maxlength="150" autocomplete="off">
+                <div id="sendChat" class="sendChatButton">
+                    <img class="sendChatIcon" src="./static/assets/chat/icon_send.png" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="expandChat" class="position-absolute expandChatButton hide-interface">
+        <span id="chatNotification" class="position-absolute translate-middle badge rounded-pill bg-danger"
+            hidden="true">
+            0
+        </span>
+        <div id="openChat">
+            <img src="./static/assets/chat/icon_bulle.png" class="chatOpenIcon" alt="">
+        </div>
+    </div>
+    <script type="text/javascript" src="./static/js/main-viewer.js"></script>
+    <script type="text/javascript" src="./api/api-wrapper.js"></script>
+</body>
+
+</html>

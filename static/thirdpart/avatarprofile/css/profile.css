@@ -1,0 +1,32 @@
+.base {
+    background-color: #fff;
+    box-shadow: 4px 0px 5px #EEE;
+    width: 300px;
+    height: 100%;
+}
+
+input {
+    width: 150px;
+    height: 32px;
+    padding: 0 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    box-sizing: border-box;
+}
+
+.profiletxt {
+    width: 100%;
+}
+
+.clr-field button {
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+}
+
+.containerskin {
+    position: relative;
+}
