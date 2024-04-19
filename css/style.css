@@ -1,7 +1,36 @@
 @import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
+footer #bottom-footer, .color-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+footer #bottom-footer #socials-medias, footer #bottom-footer nav ul, footer #top-footer #agency-informations, #testimonial-section .testimonial-card-container, #team .team-card-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#values .values-container .values-header {
+  display: flex;
+  align-items: center;
+}
+
+div.title-left-container {
+  display: flex;
+  flex-direction: column;
+}
+
+footer #top-footer, #testimonial-section .testimonial-card-container .testimonial-card, #team .team-card-container .team-card .card-hover .team-header, #team .team-card-container .team-card .card-hover, .color-container .color-details, div.title-centered-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
 @font-face {
   font-family: titleFont;
-  src: url(fonts/Bright_Melody_Personal_Use_Only.ttf);
+  src: url("/AcadMMI/fonts/Bright_Melody_Personal_Use_Only.ttf");
 }
 *,
 ::before,
@@ -16,7 +45,7 @@ html {
 }
 
 body {
-  background-color: #0a192f;
+  background-color: #002455;
   color: #ffffff;
   font-family: "Raleway", sans-serif;
   font-weight: 400;
@@ -25,11 +54,17 @@ body {
 .general {
   max-width: 1680px;
   margin: 0 auto;
+  padding: 3rem 0px;
 }
 
 h1, h2, h3 {
   font-family: titleFont;
-  font-size: 2em;
+  font-size: 2.5em;
+  font-weight: 100;
+}
+
+p {
+  font-size: 20px;
 }
 
 ul {
@@ -41,4 +76,188 @@ ul {
 a {
   color: #ffffff;
   text-decoration: none;
+}
+
+div.title-centered-container {
+  padding: 3rem 0px;
+  gap: 20px;
+}
+div.title-centered-container img.small-stars {
+  width: 30px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  margin: 0px 10px;
+}
+div.title-centered-container span.centered-underline {
+  display: block;
+  width: 150px;
+  border: 1px solid #ffffff;
+}
+
+div.title-left-container {
+  padding: 3rem 0px;
+  gap: 10px;
+}
+div.title-left-container span.left-underline {
+  display: block;
+  width: 150px;
+  border: 1px solid #ffffff;
+}
+
+.color-container {
+  margin-top: 50px;
+}
+.color-container .color-details {
+  gap: 40px;
+}
+.color-container .color-details span {
+  font-size: 2em;
+}
+
+#values .test {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+}
+#values .div1 {
+  grid-area: 1/1/3/3;
+}
+#values .div2 {
+  grid-area: 3/3/5/5;
+}
+#values .div3 {
+  grid-area: 5/1/7/3;
+}
+#values .values-container {
+  padding: 4rem 2rem;
+  border-radius: 75px;
+  background: linear-gradient(140deg, rgb(14, 178, 186) 0%, rgb(205, 215, 37) 100%);
+}
+#values .values-container .values-header {
+  gap: 30px;
+}
+#values .values-container .values-header span {
+  height: 120px;
+  font-size: 5em;
+}
+#values .values-container .values-header h3 {
+  font-size: 3em;
+  text-transform: uppercase;
+  font-family: "Raleway", sans-serif;
+  font-weight: 400;
+}
+#values .values-container p {
+  color: #002455;
+}
+#values .values-container:nth-child(even) {
+  float: right;
+}
+
+#team .team-card-container {
+  gap: 50px;
+  flex-wrap: wrap;
+}
+#team .team-card-container .team-card {
+  width: 30%;
+  position: relative;
+  transition: all 0.2s ease-in-out;
+}
+#team .team-card-container .team-card img {
+  width: 100% !important;
+  height: 100%;
+}
+#team .team-card-container .team-card .card-hover {
+  position: absolute;
+  visibility: hidden;
+  top: 0;
+  left: 0;
+  height: 100%;
+  padding: 2em;
+  background-color: rgba(0, 0, 0, 0.65);
+  transition: all 0.2s ease-in-out;
+  gap: 20px;
+}
+#team .team-card-container .team-card .card-hover .team-header {
+  gap: 10px;
+}
+#team .team-card-container .team-card .card-hover .team-header span:first-child {
+  font-family: titlefont;
+  font-weight: 100;
+  font-size: 2em;
+  text-align: center;
+}
+#team .team-card-container .team-card .card-hover .team-header span.centered-underline {
+  display: block;
+  width: 100px;
+  border: 1px solid #ffffff;
+}
+#team .team-card-container .team-card .card-hover p.name {
+  font-family: titleFont;
+  font-weight: 100;
+  font-size: 1.8em;
+}
+#team .team-card-container .team-card .card-hover p.description {
+  text-align: center;
+}
+#team .team-card-container .team-card:hover .card-hover {
+  visibility: visible;
+}
+
+#testimonial-section .testimonial-card-container {
+  gap: 50px;
+  flex-wrap: wrap;
+}
+#testimonial-section .testimonial-card-container .testimonial-card {
+  width: 30%;
+  position: relative;
+  transition: all 0.2s ease-in-out;
+  height: 300px;
+  padding: 2em;
+  background: linear-gradient(140deg, rgb(14, 178, 186) 0%, rgb(205, 215, 37) 100%);
+  gap: 20px;
+}
+#testimonial-section .testimonial-card-container .testimonial-card .testimonial-name {
+  font-family: titleFont;
+  font-size: 2em;
+  font-weight: 100;
+  text-transform: uppercase;
+}
+#testimonial-section .testimonial-card-container .testimonial-card p {
+  color: #002455;
+}
+
+footer {
+  background-image: url(/AcadMMI/medias/motif.png);
+  max-width: 100% !important;
+}
+footer #top-footer {
+  margin-bottom: 50px;
+}
+footer #top-footer img {
+  width: 30%;
+}
+footer #top-footer #agency-informations {
+  gap: 100px;
+}
+footer #top-footer #agency-informations a {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  font-size: 1.5em;
+}
+footer #bottom-footer {
+  padding: 1em 2em;
+  width: 70%;
+  margin: 0 auto;
+  border-top: 1px solid #ffffff;
+  font-size: 20px;
+}
+footer #bottom-footer nav ul {
+  gap: 25px;
+}
+footer #bottom-footer #socials-medias {
+  gap: 30px;
+  font-size: 30px;
 }/*# sourceMappingURL=style.css.map */

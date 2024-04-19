@@ -3,7 +3,7 @@
 
 @font-face {
     font-family: titleFont;
-    src: url(fonts/Bright_Melody_Personal_Use_Only.ttf);
+    src: url('/AcadMMI/fonts/Bright_Melody_Personal_Use_Only.ttf');
 }
 
 
@@ -32,13 +32,18 @@ body {
 .general {
     max-width: 1680px;
     margin: 0 auto;
+    padding: 3rem 0px;
 }
 
 h1, h2, h3 {
     font-family: titleFont;
-    font-size: 2em;
+    font-size: 2.5em;
+    font-weight: 100;
 }
 
+p {
+    font-size: 20px;
+}
 
 ul {
     list-style: none;
@@ -50,3 +55,36 @@ a {
     color: $txt-color;
     text-decoration: none;
 }
+
+
+div.title-centered-container {
+    padding: 3rem 0px;
+    @extend %flexColumn-justify;
+    gap: 20px;
+
+    img.small-stars {
+        width: 30px;
+        object-fit: cover;
+        margin: 0px 10px;
+    }
+    
+    span.centered-underline {
+        display: block;
+        width: 150px;
+        border: 1px solid #ffffff;
+    }
+}
+
+div.title-left-container {
+    padding: 3rem 0px;
+    @extend %flexColumn;
+    gap: 10px;
+
+    span.left-underline {
+        display: block;
+        width: 150px;
+        border: 1px solid #ffffff;
+    }
+}
+
+ 

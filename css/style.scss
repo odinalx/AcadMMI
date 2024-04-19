@@ -3,5 +3,232 @@
 @import '_breakpoints.scss';
 @import '_general.scss';
 
+// Section identité
+
+// Part : colors
+
+.color-container {
+    @extend %flexBetween;
+    margin-top: 50px;
+
+
+    .color-details {
+        @extend %flexColumn-justify;
+        gap: 40px;
+
+        span {
+            font-size: 2em;
+        }
+    }
+}
+
+
+
 // Section valeurs
 
+#values {
+    .test {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(6, 1fr);
+        grid-column-gap: 0px;
+        grid-row-gap: 0px;
+    }
+        
+    .div1 { grid-area: 1 / 1 / 3 / 3; }
+    .div2 { grid-area: 3 / 3 / 5 / 5; }
+    .div3 { grid-area: 5 / 1 / 7 / 3; }
+
+    .values-container {
+        padding: 4rem 2rem;
+        border-radius: 75px;
+        background: linear-gradient(140deg, rgba(14,178,186,1) 0%, rgba(205,215,37,1) 100%);
+
+        .values-header {
+            @extend %flexStart;
+            gap: 30px;
+
+            span {
+                height: 120px;
+                font-size: 5em;
+            }
+
+            h3 {
+                font-size: 3em;
+                text-transform: uppercase;
+                font-family: "Raleway", sans-serif;
+                font-weight: 400;
+            }
+        }
+        
+        p {
+            color: #002455;
+            
+        }
+
+    }
+
+    .values-container:nth-child(even) {
+        float: right;
+    }
+}
+
+// Section team
+
+#team {
+    .team-card-container {
+
+        @extend %flexCenter;
+        gap: 50px;
+        flex-wrap: wrap;
+
+        .team-card {
+            width: 30%;
+            position: relative;
+            
+            transition: all 0.2s ease-in-out;
+    
+            img {
+                width: 100% !important;
+                height: 100%;
+            }
+    
+            .card-hover {
+                position: absolute;
+                visibility: hidden;
+                top: 0;
+                left: 0;
+                height: 100%;
+                padding: 2em;
+                background-color: rgba($color: #000000, $alpha: 0.65);
+                transition: all 0.2s ease-in-out;
+    
+                @extend %flexColumn-justify;
+                gap: 20px;
+        
+                .team-header {
+                    @extend %flexColumn-justify;
+                    gap: 10px;
+    
+                    span:first-child {
+                        font-family: titlefont;
+                        font-weight: 100;
+                        font-size: 2em;
+                        text-align: center;
+                    }
+        
+                    span.centered-underline {
+                        display: block;
+                        width: 100px;
+                        border: 1px solid $border-color;
+                    }
+                }
+    
+                p.name {
+                    font-family: titleFont;
+                    font-weight: 100;
+                    font-size: 1.8em;
+                }
+    
+                p.description {
+                    text-align: center;
+                }
+            }
+    
+            &:hover .card-hover{
+                visibility: visible;
+            }
+        }
+    }
+}
+
+// Testimonial section
+
+#testimonial-section {
+    .testimonial-card-container {
+
+        @extend %flexCenter;
+        gap: 50px;
+        flex-wrap: wrap;
+
+        .testimonial-card {
+            width: 30%;
+            position: relative;
+            transition: all 0.2s ease-in-out;
+            height: 300px;
+            padding: 2em;
+            background: linear-gradient(140deg, rgba(14,178,186,1) 0%, rgba(205,215,37,1) 100%);
+
+            @extend %flexColumn-justify;
+            gap: 20px;
+
+            .testimonial-name {
+                font-family: titleFont;
+                font-size: 2em;
+                font-weight: 100;
+                text-transform: uppercase;
+            }
+
+            p {
+                color: $primary-color;
+            }
+        }
+
+        
+    }
+}
+
+// Footer
+
+footer {
+    background-image: url(/AcadMMI/medias/motif.png);
+    max-width: 100% !important;
+
+    #top-footer {
+        @extend %flexColumn-justify;
+        margin-bottom: 50px;
+
+        img {
+            width: 30%;
+            
+        }
+
+        #agency-informations {
+            @extend %flexCenter;
+            gap: 100px;
+    
+            a {
+                display: flex;
+                align-items: center;
+                gap: 25px;
+                font-size: 1.5em;
+            }
+        }
+    }
+
+    #bottom-footer {
+        @extend %flexBetween;
+        padding: 1em 2em;
+        width: 70%;
+        margin: 0 auto;
+        border-top: 1px solid $border-color;
+        font-size: 20px;
+
+        nav {
+
+            ul {
+                @extend %flexCenter;
+                gap: 25px;
+            }
+            
+        }
+
+        #socials-medias {
+            @extend %flexCenter;
+            gap: 30px;
+            font-size: 30px;
+        }
+    }
+
+    
+}
